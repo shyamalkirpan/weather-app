@@ -2,17 +2,17 @@ const container = document.querySelector('.container');
 const search = document.querySelector('.search-box button');
 const weatherBox = document.querySelector('.weather-box');
 const weatherDetails = document.querySelector('.weather-details');
-const error = document.querySelector('.not-found');
+const error404 = document.querySelector('.not-found');
 
 search.addEventListener('click' , () => {
 
-    const APIKey = fda1c775775d1d843a0c179770618a31;
+    const APIKey = 'a9246b464e27d542fe9a7f52f28264df';
     const city = document.querySelector('.search-box input').value;
 
     if(city === '')
         return;
 
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}')
+    fetch('https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}')
         .then(response => response.json())
         .then(json => {
             
@@ -54,7 +54,7 @@ search.addEventListener('click' , () => {
                 case 'Haze':
                     image.src = 'image/mist.png';
                     break;
-                    
+
                 default:
                     image.src = '';
             }
