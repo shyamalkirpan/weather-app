@@ -6,13 +6,13 @@ const error404 = document.querySelector('.not-found');
 
 search.addEventListener('click' , () => {
 
-    const APIKey = 'apikey';
+    const APIKey = 'e2fa51f352edb8ff9dd9823e7bd6edef';
     const city = document.querySelector('.search-box input').value;
 
     if(city === '')
         return;
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q={city}&appid=${APIKey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`)
         .then(response => response.json())
         .then(json => {
             
@@ -29,30 +29,30 @@ search.addEventListener('click' , () => {
             error404.classList.remove('fadeIn');
 
             const image = document.querySelector('.weather-box img');
-            const temperature = document.querySelector('weather-box .temperature');
+            const temperature = document.querySelector('.weather-box .temperature');
             const description = document.querySelector('.weather-box .description');
             const humidity = document.querySelector('.weather-details .humdity span')
             const wind = document.querySelector('.weather-details .wind span')
 
             switch (json.weather[0].main){
                 case 'Clear':
-                    image.src = 'images/clear.png';
+                    image.src = './images/clear.png';
                     break;
 
                 case 'Rain':
-                    image.src = 'images/rain.png';
+                    image.src = './images/rain.png';
                     break;
 
                 case 'Snow':
-                    image.src = 'image/snow.png';
+                    image.src = './images/snow.png';
                     break;
 
                 case 'Clouds':
-                    image.src = 'image/cloud.png';
+                    image.src = './images/cloud.png';
                     break;
 
                 case 'Haze':
-                    image.src = 'image/mist.png';
+                    image.src = './images/mist.png';
                     break;
 
                 default:
