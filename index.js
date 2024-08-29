@@ -6,13 +6,13 @@ const error404 = document.querySelector('.not-found');
 
 search.addEventListener('click' , () => {
 
-    const APIKey = 'e2fa51f352edb8ff9dd9823e7bd6edef';
+    const APIKey = 'APIKey';
     const city = document.querySelector('.search-box input').value;
 
     if(city === '')
         return;
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`)
         .then(response => response.json())
         .then(json => {
             
@@ -31,7 +31,7 @@ search.addEventListener('click' , () => {
             const image = document.querySelector('.weather-box img');
             const temperature = document.querySelector('.weather-box .temperature');
             const description = document.querySelector('.weather-box .description');
-            const humidity = document.querySelector('.weather-details .humdity span')
+            const humidity = document.querySelector('.weather-details .humidity span')
             const wind = document.querySelector('.weather-details .wind span')
 
             switch (json.weather[0].main){
@@ -41,6 +41,10 @@ search.addEventListener('click' , () => {
 
                 case 'Rain':
                     image.src = './images/rain.png';
+                    break;
+
+                case 'Thunderstorm':
+                    image.src = './images/thunderstorm.png';
                     break;
 
                 case 'Snow':
