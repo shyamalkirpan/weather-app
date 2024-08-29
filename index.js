@@ -6,13 +6,13 @@ const error404 = document.querySelector('.not-found');
 
 search.addEventListener('click' , () => {
 
-    const APIKey = 'a9246b464e27d542fe9a7f52f28264df';
+    const APIKey = 'apikey';
     const city = document.querySelector('.search-box input').value;
 
     if(city === '')
         return;
 
-    fetch('https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}')
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q={city}&appid=${APIKey}`)
         .then(response => response.json())
         .then(json => {
             
